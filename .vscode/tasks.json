@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "FilmStation: configure Debug",
+            "type": "process",
+            "command": "${env:HOME}/Qt/Tools/CMake/CMake.app/Contents/bin/cmake",
+            "args": [
+                "--preset",
+                "macos-debug-local"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "FilmStation: build Debug",
+            "type": "process",
+            "command": "${env:HOME}/Qt/Tools/CMake/CMake.app/Contents/bin/cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "macos-debug-local",
+                "--parallel",
+                "6"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "FilmStation: configure Debug",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
